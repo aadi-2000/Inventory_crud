@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>update</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <style>
+    label{
+      margin-left: 4.5em;
+      color: black;
+    }
+    input{
+      position: absolute;
+      text-align: center;
+      left: 250px;
+    }
+  </style>
+</head>
+<body class="hold-transition sidebar-mini">
+<!-- Site wrapper -->
+<div class="wrapper">
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light bg-info">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="/" class="nav-link">Home</a>
+      </li>
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+  
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4 " style="background-color: #2f6c6f;">
+		<!-- Brand Logo -->
+			<a href="#" class="brand-link">
+			  <img src="FFlogo.png"
+				   alt="Fashion Feet Logo"
+				   class="brand-image img-circle elevation-3">
+			  <span class="brand-text font-weight-light text-white">Movies</span>
+			</a>
+			<!-- Sidebar -->
+            <div class="sidebar text-Black">
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                      <li class="nav-item">
+                        <a href="/create" class="nav-link">
+                          <i class="nav-icon far fa-circle text-info"></i>
+                          <p>Add a Movie</p>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="#" class="nav-link">
+                          <i class="nav-icon far fa-circle text-info"></i>
+                          <p>
+                            update Details
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="/update_title" class="nav-link">
+                              <i class="far fa-circle nav-icon"></i>
+                              <p>title</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="/update_Genres" class="nav-link">
+                              <i class="far fa-circle nav-icon"></i>
+                              <p>Genres</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="/update_date" class="nav-link">
+                              <i class="far fa-circle nav-icon"></i>
+                              <p>date</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="/update_IMDb" class="nav-link">
+                              <i class="far fa-circle nav-icon"></i>
+                              <p>IMDb_Rating</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="/update_votes" class="nav-link">
+                              <i class="far fa-circle nav-icon"></i>
+                              <p>votes</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="/update_Runtime" class="nav-link">
+                              <i class="far fa-circle nav-icon"></i>
+                              <p>Runtime</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="/update_Director" class="nav-link">
+                              <i class="far fa-circle nav-icon"></i>
+                              <p>Director</p>
+                            </a>
+                          </li>
+    
+                        </ul>
+                      </li>
+                      <li class="nav-item">
+                        <a href="/delete" class="nav-link">
+                          <i class="nav-icon far fa-circle text-info"></i>
+                          <p class="text">Delete Movie</p>
+                        </a>
+                      </li>
+                      
+                    </ul>
+                </nav>
+			</div>
+			<!-- /.sidebar -->
+		</aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper" style="background-color: #aad8d3;">
+      <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col" style="margin: auto;max-width: 600px;">
+          <div class="card card-primary bg-blue">
+            <div class="card-header">
+              <h3 class="card-title" >Movie Description</h3>
+
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                  <i class="fas fa-minus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="card-body" style="background-color: lightskyblue;">
+              <form action="/updateDirector" method="POST">
+                <label>ID:</label>&nbsp;
+                <input type="Number" placeholder="Enter Movie ID" name="id"></br></br>
+        
+                <label>Director:</label>
+                <input type="String" placeholder="Enter Movie Director" name="Director"></br></br>
+        
+                <button type="submit" style="position: absolute;left: 450px;">Update</button>
+                <li class="nav-item d-none d-sm-inline-block">
+                  <a href="/" class="nav-link">cancel</a>
+                </li>
+            </form>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+      </div>
+      <div class="row">
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <footer class="main-footer">
+    
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="../../plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../../dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../../dist/js/demo.js"></script>
+</body>
+</html>
