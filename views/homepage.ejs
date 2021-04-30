@@ -6,12 +6,17 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="dist/css/adminlte.min.css">
-  <!-- Google Font: Source Sans Pro -->
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+   <!-- Font Awesome -->
+   <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+   <!-- Theme style -->
+   <link rel="stylesheet" href="dist/css/adminlte.min.css">
+   <!-- Google Font: Source Sans Pro -->
+   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+   <!-- DataTables -->
+ <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+ <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+ <link rel="stylesheet" href="../../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+
   <script>
     function myFunction() {
       var input, filter, table, tr, td, i, txtValue;
@@ -21,9 +26,11 @@
       tr = table.getElementsByTagName("tr");
       for (i = 0; i < tr.length; i++) {
         td = tr[i].getElementsByTagName("td")[1];
-        if (td) {
+        td2 = tr[i].getElementsByTagName("td")[2];
+        if (td || td2) {
           txtValue = td.textContent || td.innerText;
-          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          txtValue2 = td2.textContent || td2.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1 || txtValue2.toUpperCase().indexOf(filter) > -1) {
             tr[i].style.display = "";
           } else {
             tr[i].style.display = "none";
@@ -164,18 +171,20 @@
                       </div>
                     </div>
                     <div class="card-body table-responsive p-0" style="height: 400px;">
-                        <table class="table table-head-fixed text-nowrap" id="myTable">
-                        
+                        <table class="table table-striped projects" id="myTable">
+                          <thead>
                             <tr style="background-color: lightskyblue;">
-                                <th style="width: 10%" >ID</th>
+                                <th style="width: 1%" >ID</th>
                                 <th style="width: 10%" >Title</th>
-                                <th style="width: 10%" >Genres</th>
-                                <th style="width: 10%" >Release_Date</th>
-                                <th style="width: 10%" >IMDb_Rating</th>
-                                <th style="width: 15%" >Num_Votes</th>
-                                <th style="width: 10%" >Runtime</th>
+                                <th style="width: 15%" >Genres</th>
+                                <th style="width: 6%" >Release_Date</th>
+                                <th style="width: 5%" >IMDb_Rating</th>
+                                <th style="width: 6%" >Num_Votes</th>
+                                <th style="width: 5%" >Runtime</th>
                                 <th style="width: 10%" >Director</th>
                             </tr>
+                          </thead>
+                          <tbody>  
                             <% for(var i=0;i<data.length;i++) {%>
                                 <tr>
                                     <td><%= data[i].ID %></td>
@@ -188,6 +197,7 @@
                                     <td><%= data[i].Directors %></td>
                                 </tr>
                                 <% } %>
+                              </tbody>      
                 </div>
 
 			</section>
@@ -197,13 +207,41 @@
 		
 	</div>
 
-    <script src="plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap 4 -->
-    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="dist/js/adminlte.min.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="dist/js/demo.js"></script>   
+        <!-- jQuery -->
+<script src="../../plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- DataTables  & Plugins -->
+<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="../../plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="../../plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="../../plugins/jszip/jszip.min.js"></script>
+<script src="../../plugins/pdfmake/pdfmake.min.js"></script>
+<script src="../../plugins/pdfmake/vfs_fonts.js"></script>
+<script src="../../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../../dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../../dist/js/demo.js"></script>
+<!-- Page specific script -->
+<script>
+  $(function () {
+    $('#myTable').DataTable({
+      "paging": false,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": false,
+      "autoWidth": false,
+      "responsive": true,
+    });
+  });
+  </script>
 
 </body>
 </html>
